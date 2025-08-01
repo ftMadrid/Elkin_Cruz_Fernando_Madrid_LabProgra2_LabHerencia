@@ -25,14 +25,28 @@ public class ACFechaFin extends JFrame{
     private void initComponentes(){
         
         titulo.setBounds(30, -50, 500, 300);
-        titulo.setFont(new Font("Kefa", Font.BOLD, 32));
+        titulo.setFont(new Font("Kefa", Font.BOLD, 28));
         titulo.setForeground(Color.black);
+        codigotext.setBounds(30, 90, 200, 30);
+        txtCodigo.setBounds(250, 90, 200, 30);
+        nuevafechatext.setBounds(250, 140, 200, 30);
+        textfecha.setBounds(250,140,200,30);
+        
+        
         
         add(titulo);
+        add(codigotext);
+        add(txtCodigo);
+        add(nuevafechatext);
+        add(textfecha);
         
     }
     
     private final JLabel titulo = new JLabel("Actualizar Fecha Fin de Contrato");
+    private final JLabel codigotext=new JLabel("Ingrese codigo");
+    private final JLabel nuevafechatext=new JLabel("Ingrese nueva fecha");
+    private final JTextField txtCodigo = new JTextField();
+    private final JTextField textfecha=new JTextField();
     
     public static void main(String[] args) {
         new ACFechaFin().setVisible(true);

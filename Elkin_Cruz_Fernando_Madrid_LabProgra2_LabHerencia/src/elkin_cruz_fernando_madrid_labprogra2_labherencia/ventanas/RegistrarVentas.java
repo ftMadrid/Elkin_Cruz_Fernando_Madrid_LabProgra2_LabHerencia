@@ -1,7 +1,10 @@
 package elkin_cruz_fernando_madrid_labprogra2_labherencia.ventanas;
 
+import elkin_cruz_fernando_madrid_labprogra2_labherencia.Empleado;
+import elkin_cruz_fernando_madrid_labprogra2_labherencia.EmpleadoVentas;
 import java.awt.Color;
 import java.awt.Font;
+import java.util.Calendar;
 import javax.swing.*;
 
 public class RegistrarVentas extends JFrame{
@@ -22,18 +25,68 @@ public class RegistrarVentas extends JFrame{
         
     }
     
-    private void initComponentes(){
-        
-        titulo.setBounds(30, -50, 400, 300);
-        titulo.setFont(new Font("Kefa", Font.BOLD, 42));
-        titulo.setForeground(Color.black);
-        
-        add(titulo);
-        
-    }
+     private void initComponentes(){
+         labelcodigo.setBounds(50, 90, 200, 30);
+    txtCodigo.setBounds(250, 90, 200, 30);
+
+    labelventas.setBounds(20, 130, 200, 30);
+    textoVentas.setBounds(230, 130, 200, 30);
+
+    titulo.setBounds(80, 20, 400, 40);
+    titulo.setFont(new Font("Kefa", Font.BOLD, 28));
+    titulo.setForeground(Color.black);
+
+   
+    btnGuardar.setBounds(250, 200, 150, 30);
+    btnRegresar.setBounds(50, 200, 150, 30);
+
     
-    private final JLabel titulo = new JLabel("Registrar Ventas");
+    btnGuardar.addActionListener(e -> {
+        
+      
+        String codigoEmpleado = txtCodigo.getText();
+        int codigo=Integer.parseInt(codigoEmpleado);
+        String ventas = textoVentas.getText();
+        int horas=Integer.parseInt(ventas);
+       
+        if(Empleado.buscar(codigo)!=null){
+           
+            if(Empleado.buscar(codigo) instanceof EmpleadoVentas ventasemp){
+             
+            ventasemp.registrodeventas(horas, 0);
+             JOptionPane.showMessageDialog(null, "Se a registrado la hora", "Exito", JOptionPane.PLAIN_MESSAGE);
+            }
+      
+        }
+        
+        
+    });
+    btnRegresar.addActionListener(e ->{
+    Principal p= new Principal();
+    p.setVisible(true);
+    this.dispose();
+        
+        });
+   
+    add(titulo);
+    add(labelcodigo);
+    add(txtCodigo);
+    add(labelventas);
+    add(textoVentas);
+    add(btnGuardar);
+    add(btnRegresar);
+}
     
+    private final JLabel titulo = new JLabel("Registrar Ventas ");
+    private final JLabel labelcodigo=new JLabel("Ingrese codigo del empleado: ");
+    private final JLabel labelventas=new JLabel("Ingrese ventas realizadas: ");
+    private final JTextField txtCodigo = new JTextField();
+    private final JTextField textoVentas=new JTextField();
+    private final JButton btnGuardar = new JButton("Guardar Ventas");
+    private final JButton btnRegresar=new JButton("Regresar");
+    
+    
+
     public static void main(String[] args) {
         new RegistrarVentas().setVisible(true);
     }
