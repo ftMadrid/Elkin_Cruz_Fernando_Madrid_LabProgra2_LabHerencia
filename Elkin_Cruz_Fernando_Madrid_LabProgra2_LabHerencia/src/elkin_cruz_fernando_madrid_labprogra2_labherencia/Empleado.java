@@ -18,9 +18,11 @@ public class Empleado {
         this.salario = salario;
         this.horas = horas;
     }
-public Empleado(){
 
-}
+    public Empleado() {
+
+    }
+
     public void registrarhoras(int horastrabajadas) {
         horas = horastrabajadas;
     }
@@ -48,6 +50,18 @@ public Empleado(){
                 return;
             }
         }
+    }
+
+    public static String listar() {
+        String texto = "";
+
+        for (Empleado emp : ListaEmpleados) {
+            if (emp != null) {
+                texto += emp.mostrarinfo() + "\n\n";
+            }
+        }
+
+        return texto;
     }
 
     public String mostrarinfo() {

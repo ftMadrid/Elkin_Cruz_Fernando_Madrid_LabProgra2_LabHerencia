@@ -1,41 +1,44 @@
 package elkin_cruz_fernando_madrid_labprogra2_labherencia.ventanas;
 
-import java.awt.Color;
-import java.awt.Font;
+import elkin_cruz_fernando_madrid_labprogra2_labherencia.Empleado;
 import javax.swing.*;
 
-public class GenerarReportes extends JFrame{
-    
-    public GenerarReportes(){
-        initVentana();
-        initComponentes();
-    }
-    
-    private void initVentana(){
-        
-        setSize(700, 600);
-        setTitle("HERENCIA");
-        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setResizable(false);
+public class GenerarReportes extends JFrame {
+
+    public GenerarReportes() {
+        setTitle("Herencia");
+        setSize(500, 400);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(null);
-        
+
+        areaTexto = new JTextArea();
+        areaTexto.setEditable(false);
+        JScrollPane scroll = new JScrollPane(areaTexto);
+        scroll.setBounds(20, 20, 440, 280);
+        add(scroll);
+
+        botonGenerar = new JButton("Generar Reporte");
+        botonGenerar.setBounds(170, 320, 150, 30);
+        add(botonGenerar);
+
+        botonGenerar.addActionListener(e -> {
+            String texto = Empleado.listar();
+            if (texto.equals("")) {
+                areaTexto.setText("No hay empleados registrados.");
+            } else {
+                areaTexto.setText(texto);
+            }
+        });
+
+        setVisible(true);
     }
-    
-    private void initComponentes(){
-        
-        titulo.setBounds(30, -50, 500, 300);
-        titulo.setFont(new Font("Kefa", Font.BOLD, 32));
-        titulo.setForeground(Color.black);
-        
-        add(titulo);
-        
-    }
-    
+
     private final JLabel titulo = new JLabel("Generar Reportes de Empleados");
-    
+    private JTextArea areaTexto;
+    private JButton botonGenerar;
+
     public static void main(String[] args) {
         new GenerarReportes().setVisible(true);
     }
-    
+
 }
