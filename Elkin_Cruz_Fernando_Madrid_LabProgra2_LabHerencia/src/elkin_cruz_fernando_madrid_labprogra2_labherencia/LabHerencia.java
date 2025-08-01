@@ -9,5 +9,4 @@ public class LabHerencia {
         new Principal().setVisible(true);
         
     }
-    
 }
