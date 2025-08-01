@@ -23,16 +23,20 @@ public class RegHorasTrabajadas extends JFrame{
     }
     
     private void initComponentes(){
-        
+        labelcodigo.setBounds(20, 80, 500, 150 );
         titulo.setBounds(30, -50, 500, 300);
-        titulo.setFont(new Font("Kefa", Font.BOLD, 38));
+        titulo.setFont(new Font("Kefa", Font.BOLD, 32));
         titulo.setForeground(Color.black);
         
-        add(titulo);
         
+        add(titulo);
+        add(labelcodigo);
     }
     
     private final JLabel titulo = new JLabel("Registrar Horas Trabajadas");
+    private final JLabel labelcodigo=new JLabel("Ingrese codigo del empleado: ");
+    private final JLabel labelhoras=new JLabel("Ingrese horas trabajadas: ");
+    private final JTextField txtCodigo = new JTextField();
     
     public static void main(String[] args) {
         new RegHorasTrabajadas().setVisible(true);
