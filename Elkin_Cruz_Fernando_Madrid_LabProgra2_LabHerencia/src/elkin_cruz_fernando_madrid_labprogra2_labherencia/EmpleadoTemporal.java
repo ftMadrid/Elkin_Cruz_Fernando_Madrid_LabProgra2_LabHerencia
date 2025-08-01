@@ -4,14 +4,15 @@ import java.util.Calendar;
 
 public class EmpleadoTemporal extends Empleado {
 
-    protected Calendar fechafincontrato;
     protected int yearfin;
     protected int monthfin;
     protected int diafin;
+    private Calendar fechafincontrato;
 
-    public EmpleadoTemporal(int codigo, String nombre, double salario, int horas, int yearfin, int monthfin, int diafin) {
+    public EmpleadoTemporal(int codigo, String nombre, double salario, int horas, int año, int mes, int dia) {
         super(codigo, nombre, salario, horas);
-        this.fechafincontrato.set(yearfin, monthfin, diafin);
+        this.fechafincontrato = Calendar.getInstance();
+        this.fechafincontrato.set(año, mes, dia);
     }
 
     public double pagoCondicionado() {
@@ -32,6 +33,6 @@ public class EmpleadoTemporal extends Empleado {
 
     @Override
     public String mostrarinfo() {
-        return super.mostrarinfo() + "Fin del contrato: " + fechafincontrato;
+        return super.mostrarinfo() + "\nFin del contrato: " + +fechafincontrato.get(Calendar.DAY_OF_MONTH)+"/"+(fechafincontrato.get(Calendar.MONTH)+1)+"/"+fechafincontrato.get(Calendar.YEAR);
     }
 }

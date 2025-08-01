@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public class Empleado {
 
-    private final Empleado[] ListaEmpleados = new Empleado[100];
+    private static Empleado[] ListaEmpleados = new Empleado[100];
     protected int codigo;
     protected String nombre;
     protected Calendar fecha;
@@ -18,9 +18,7 @@ public class Empleado {
         this.salario = salario;
         this.horas = horas;
     }
-    public Empleado(){
-    
-    }
+
     public void registrarhoras(int horastrabajadas) {
         horas = horastrabajadas;
     }
@@ -32,18 +30,25 @@ public class Empleado {
 
     }
 
-    public Empleado buscar(int codigo) {
-
-        for (int i = 0; ListaEmpleados.length < 10; i++) {
-            if (codigo == ListaEmpleados[i].codigo) {
-                return ListaEmpleados[i];
+    public static Empleado buscar(int codigo) {
+        for (Empleado ListaEmpleado : ListaEmpleados) {
+            if (ListaEmpleado != null && ListaEmpleado.codigo == codigo) {
+                return ListaEmpleado;
             }
-
         }
         return null;
     }
 
+    public static void agregarEmpleado(Empleado emp) {
+        for (int i = 0; i < ListaEmpleados.length; i++) {
+            if (ListaEmpleados[i] == null) {
+                ListaEmpleados[i] = emp;
+                return;
+            }
+        }
+    }
+
     public String mostrarinfo() {
-        return "Codigo: " + codigo + "\n Nombre: " + "\n Fecha de contratacion: " + fecha;
+        return "\nCodigo: " + codigo + "\nNombre: " + nombre + "\nFecha de contratacion: " + +fecha.get(Calendar.DAY_OF_MONTH) + "/" + (fecha.get(Calendar.MONTH) + 1) + "/" + fecha.get(Calendar.YEAR);
     }
 }
