@@ -38,10 +38,15 @@ public class RegHorasTrabajadas extends JFrame {
         btnRegresar.setBounds(50, 200, 150, 30);
 
         btnGuardar.addActionListener(e -> {
+            String codigoEmpleado = txtCodigo.getText().trim();
+            String horasTrabajadasLabel = textoHoras.getText().trim();
 
-            String codigoEmpleado = txtCodigo.getText();
+            if (codigoEmpleado.isEmpty() || horasTrabajadasLabel.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
             int codigo = Integer.parseInt(codigoEmpleado);
-            String horasTrabajadasLabel = textoHoras.getText();
             int horas = Integer.parseInt(horasTrabajadasLabel);
 
             Empleado emp = Empleado.buscar(codigo);
@@ -54,6 +59,7 @@ public class RegHorasTrabajadas extends JFrame {
             }
 
         });
+
         btnRegresar.addActionListener(e -> {
             Principal p = new Principal();
             p.setVisible(true);
