@@ -18,7 +18,9 @@ public class Empleado {
         this.salario = salario;
         this.horas = horas;
     }
-
+    public Empleado(){
+    
+    }
     public void registrarhoras(int horastrabajadas) {
         horas = horastrabajadas;
     }
