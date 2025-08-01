@@ -38,15 +38,11 @@ public class ACFechaFin extends JFrame {
         nuevafechatext.setBounds(250, 140, 200, 30);
         textfecha.setBounds(250,140,200,30);
         
-        
-        
         add(titulo);
         add(codigotext);
         add(txtCodigo);
         add(nuevafechatext);
         add(textfecha);
-        
-=======
 
         codigoLabel.setBounds(30, 150, 150, 30);
         codigo.setBounds(100, 150, 200, 30);
@@ -68,7 +64,6 @@ public class ACFechaFin extends JFrame {
         add(registrar);
         add(regresar);
 
->>>>>>> 4701d465aa8d6f7b14f7f72b6ed6c2d2f31d6311
     }
 
     private void registrarAction() {
@@ -105,13 +100,12 @@ public class ACFechaFin extends JFrame {
     }
 
     private final JLabel titulo = new JLabel("Actualizar Fecha Fin de Contrato");
-<<<<<<< HEAD
+
     private final JLabel codigotext=new JLabel("Ingrese codigo");
     private final JLabel nuevafechatext=new JLabel("Ingrese nueva fecha");
     private final JTextField txtCodigo = new JTextField();
     private final JTextField textfecha=new JTextField();
     
-=======
     private final JLabel codigoLabel = new JLabel("Codigo:");
     private final JTextField codigo = new JTextField();
     private final JLabel fechaLabel = new JLabel("Fecha Fin:");
@@ -119,7 +113,6 @@ public class ACFechaFin extends JFrame {
     private final JButton registrar = new JButton("Registrar");
     private final JButton regresar = new JButton("Regresar");
 
->>>>>>> 4701d465aa8d6f7b14f7f72b6ed6c2d2f31d6311
     public static void main(String[] args) {
         new ACFechaFin().setVisible(true);
     }
