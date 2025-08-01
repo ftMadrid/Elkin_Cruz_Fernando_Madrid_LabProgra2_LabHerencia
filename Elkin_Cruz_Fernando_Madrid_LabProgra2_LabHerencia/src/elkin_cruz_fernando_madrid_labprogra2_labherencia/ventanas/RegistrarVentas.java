@@ -47,18 +47,19 @@ public class RegistrarVentas extends JFrame{
         String codigoEmpleado = txtCodigo.getText();
         int codigo=Integer.parseInt(codigoEmpleado);
         String ventas = textoVentas.getText();
-        int horas=Integer.parseInt(ventas);
+        int ventasnum=Integer.parseInt(ventas);
        
-        if(Empleado.buscar(codigo)!=null){
-           
-            if(Empleado.buscar(codigo) instanceof EmpleadoVentas ventasemp){
-             
-            ventasemp.registrodeventas(horas, 0);
-             JOptionPane.showMessageDialog(null, "Se a registrado la hora", "Exito", JOptionPane.PLAIN_MESSAGE);
-            }
-      
+        Empleado empleadoencontrado= Empleado.buscar(codigo);
+        if(empleadoencontrado!=null){
+        if(empleadoencontrado instanceof EmpleadoVentas){
+        EmpleadoVentas ventasemp=(EmpleadoVentas)empleadoencontrado;
+        ventasemp.registrodeventas(ventasnum, 0);
+        JOptionPane.showMessageDialog(null,"Se ha registrado la ventas", "Aviso", JOptionPane.PLAIN_MESSAGE);
+} else {
+        JOptionPane.showMessageDialog(null, "El empleado no es de tipo ventas","Aviso", JOptionPane.PLAIN_MESSAGE(rootPane, ventas));
         }
         
+        }
         
     });
     btnRegresar.addActionListener(e ->{

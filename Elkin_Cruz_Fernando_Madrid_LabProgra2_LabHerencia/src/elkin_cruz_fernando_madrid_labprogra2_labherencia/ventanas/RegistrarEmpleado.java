@@ -6,6 +6,7 @@ import elkin_cruz_fernando_madrid_labprogra2_labherencia.EmpleadoTemporal;
 import elkin_cruz_fernando_madrid_labprogra2_labherencia.EmpleadoVentas;
 import java.awt.Font;
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.*;
 
 public class RegistrarEmpleado extends JFrame {
@@ -88,7 +89,7 @@ public class RegistrarEmpleado extends JFrame {
 
         if (Empleado.buscar(cod) == null) {
             if ("Temporal".equals(tipoEmpleado)) {
-                java.util.Date fecha = fechaContrato.getDate();
+                Date fecha = fechaContrato.getDate();
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(fecha);
                 int year = cal.get(Calendar.YEAR);
